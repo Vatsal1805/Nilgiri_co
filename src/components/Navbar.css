@@ -1,0 +1,254 @@
+/* ===================================================
+   Navbar — Nilgiri Restaurant & Banquet
+   =================================================== */
+
+/* ── Navbar bar ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--nav-height, 72px);
+  background: transparent;
+  border-bottom: 0.5px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Scrolled state — solid ivory + gold border */
+.navbar--scrolled {
+  background: #FAF6EE;
+  border-bottom-color: #C8A96E;
+}
+
+/* Inner container */
+.navbar__inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Logo ── */
+.navbar__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+.navbar__logo:hover {
+  opacity: 0.8;
+}
+
+.navbar__logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #FAF6EE; /* Light text when transparent */
+  transition: color 0.3s ease;
+}
+
+.navbar--scrolled .navbar__logo-name {
+  color: #2C1A0E; /* Dark text when scrolled */
+}
+
+.navbar__logo-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #C8A96E;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── Desktop nav links ── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navbar__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #FAF6EE; /* Light text when transparent */
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.navbar--scrolled .navbar__link {
+  color: #2C1A0E; /* Dark text when scrolled */
+}
+
+.navbar__link:hover,
+.navbar--scrolled .navbar__link:hover {
+  color: #C8A96E;
+}
+
+/* Subtle underline on hover */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1.5px;
+  background: #C8A96E;
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+/* ── CTA button ── */
+.navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2C1A0E;
+  background: #C8A96E;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.navbar__cta:hover {
+  background: #A07850;
+}
+
+/* ── Hamburger icon (mobile only) ── */
+.navbar__hamburger {
+  display: none;           /* hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #FAF6EE; /* Light line when transparent */
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+.navbar--scrolled .navbar__hamburger-line {
+  background: #2C1A0E; /* Dark line when scrolled */
+}
+
+/* ===================================================
+   Mobile overlay
+   =================================================== */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: #FAF6EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close (X) button */
+.mobile-overlay__close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #2C1A0E;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.mobile-overlay__close:hover {
+  opacity: 0.6;
+}
+
+/* Stacked links */
+.mobile-overlay__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.mobile-overlay__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #2C1A0E;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.mobile-overlay__link:hover {
+  color: #C8A96E;
+}
+
+.mobile-overlay__cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2C1A0E;
+  background: #C8A96E;
+  padding: 14px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: background 0.3s ease;
+}
+.mobile-overlay__cta:hover {
+  background: #A07850;
+}
+
+/* ===================================================
+   Responsive — show hamburger below 768px
+   =================================================== */
+@media (max-width: 768px) {
+  .navbar__links,
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+}

@@ -1,0 +1,142 @@
+/* ===================================================
+   Nilgiri Restaurant & Banquet — Global Styles
+   =================================================== */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --color-ivory: #FAF6EE;
+  --color-cream: #F2E8D5;
+  --color-gold: #C8A96E;
+  --color-gold-dark: #B4944F;
+  --color-gold-light: rgba(200, 169, 110, 0.18);
+  --color-caramel: #A07850;
+  --color-brown: #5C3D2E;
+  --color-deep-brown: #2C1A0E;
+  --color-white: #FFFFFF;
+  --color-border-gold: rgba(200, 169, 110, 0.35);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --nav-height: 72px;
+  --section-pad-x: 28px;
+  --section-pad-y: 100px;
+  --max-width: 1200px;
+
+  --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-soft: 0 4px 24px rgba(44, 26, 14, 0.06);
+  --shadow-gold: 0 4px 20px rgba(200, 169, 110, 0.3);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-deep-brown);
+  background-color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---------- Utility Classes ---------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+  width: 100%;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 600;
+  color: var(--color-deep-brown);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.section-subtitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-brown);
+  opacity: 0.75;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ---------- Reveal Animations ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+@media (max-width: 1199px) {
+  :root {
+    --section-pad-x: 24px;
+    --section-pad-y: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --section-pad-x: 18px;
+    --section-pad-y: 60px;
+    --nav-height: 64px;
+  }
+}

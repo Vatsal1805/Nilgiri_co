@@ -1,0 +1,168 @@
+/* ===================================================
+   Banquet — Nilgiri Restaurant & Banquet
+   =================================================== */
+
+.banquet {
+  background: #FAF6EE;
+  padding: 100px 0;
+}
+
+/* ── Top Section ── */
+.banquet__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.banquet__label {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #C8A96E;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+}
+
+.banquet__heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: #2C1A0E;
+  line-height: 1.3;
+  margin: 0 0 16px;
+}
+
+.banquet__subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #5C3D2E;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ── Cards Grid ── */
+.banquet__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.banquet__card {
+  border-radius: 14px;
+  padding: 2rem;
+}
+
+.banquet__card--light {
+  background: #F2E8D5;
+  border: 0.5px solid #C8A96E;
+}
+
+.banquet__card--dark {
+  background: #2C1A0E;
+}
+
+.banquet__card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.banquet__card--light .banquet__card-title {
+  color: #2C1A0E;
+}
+
+.banquet__card--dark .banquet__card-title {
+  color: #C8A96E;
+}
+
+.banquet__card-divider {
+  width: 30px;
+  height: 2px;
+  background: #C8A96E;
+  margin: 16px 0 24px;
+  border: none;
+}
+
+/* ── List Items ── */
+.banquet__list {
+  display: grid;
+  gap: 16px;
+}
+
+.banquet__list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.banquet__list-icon {
+  flex-shrink: 0;
+}
+
+.banquet__list-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.banquet__card--light .banquet__list-text {
+  color: #5C3D2E;
+}
+
+.banquet__card--dark .banquet__list-text {
+  color: #FAF6EE;
+}
+
+/* ── CTA Button ── */
+.banquet__cta-wrap {
+  text-align: center;
+}
+
+.banquet__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2C1A0E;
+  background: #C8A96E;
+  padding: 16px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.banquet__cta:hover {
+  background: #A07850;
+}
+
+/* ===================================================
+   Responsive — Mobile (< 768px)
+   =================================================== */
+@media (max-width: 768px) {
+  .banquet {
+    padding: 60px 0;
+  }
+
+  .banquet__header {
+    margin-bottom: 36px;
+  }
+
+  .banquet__heading {
+    font-size: 28px;
+  }
+
+  .banquet__subtext {
+    font-size: 14px;
+  }
+
+  .banquet__cards {
+    grid-template-columns: 1fr;
+  }
+}

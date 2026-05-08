@@ -1,0 +1,58 @@
+/* ============================
+   STATS SECTION
+   ============================ */
+.stats {
+  position: relative;
+  padding: 80px 0;
+  background:
+    url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80') center/cover no-repeat fixed;
+}
+
+.stats__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 26, 14, 0.82);
+}
+
+.stats__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stats__value {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1.1;
+}
+
+.stats__label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(250, 246, 238, 0.65);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .stats__inner { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .stats { padding: 60px 0; }
+  .stats__inner { grid-template-columns: repeat(2, 1fr); gap: 36px 20px; }
+}

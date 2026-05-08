@@ -1,0 +1,213 @@
+/* ===================================================
+   About — Nilgiri Restaurant & Banquet
+   =================================================== */
+
+.about {
+  background: #FAF6EE;
+  padding: 100px 0;
+}
+
+.about__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ── Left column — Images ── */
+.about__images {
+  position: relative;
+  min-height: 460px;
+}
+
+/* Main image */
+.about__img-main {
+  display: block;
+  width: 65%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* Secondary image — overlapping bottom-right */
+.about__img-secondary {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 4px solid #FAF6EE;
+  z-index: 2;
+}
+
+/* Circular badge — bottom-left of the image cluster */
+.about__badge {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #2C1A0E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  text-align: center;
+  padding: 8px;
+}
+
+.about__badge-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #C8A96E;
+  line-height: 1;
+}
+
+.about__badge-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 9px;
+  font-weight: 400;
+  color: #C8A96E;
+  line-height: 1.25;
+  margin-top: 3px;
+}
+
+/* ── Right column — Text ── */
+.about__text {
+  max-width: 520px;
+}
+
+.about__label {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #C8A96E;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+}
+
+.about__heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: #2C1A0E;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.about__divider {
+  width: 40px;
+  height: 2px;
+  background: #C8A96E;
+  margin: 20px 0;
+  border: none;
+}
+
+.about__paragraph {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #5C3D2E;
+  line-height: 1.85;
+  margin: 0 0 18px;
+}
+
+.about__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2C1A0E;
+  background: #C8A96E;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: background 0.3s ease;
+}
+
+.about__cta:hover {
+  background: #A07850;
+}
+
+/* ===================================================
+   Responsive — Tablet (< 1024px)
+   =================================================== */
+@media (max-width: 1024px) {
+  .about__inner {
+    gap: 44px;
+  }
+
+  .about__heading {
+    font-size: 32px;
+  }
+
+  .about__images {
+    min-height: 380px;
+  }
+}
+
+/* ===================================================
+   Responsive — Mobile (< 768px)
+   =================================================== */
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* Stack images vertically on mobile */
+  .about__images {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+
+  .about__img-main {
+    width: 100%;
+    position: static;
+  }
+
+  .about__img-secondary {
+    position: static;
+    width: 70%;
+    align-self: flex-end;
+    border: 4px solid #FAF6EE;
+    margin-top: -40px;
+  }
+
+  .about__badge {
+    bottom: auto;
+    top: 10px;
+    left: auto;
+    right: 10px;
+  }
+
+  .about__heading {
+    font-size: 28px;
+  }
+
+  .about__paragraph {
+    font-size: 14px;
+  }
+}
