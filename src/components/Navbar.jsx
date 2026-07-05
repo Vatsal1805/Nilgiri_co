@@ -3,11 +3,11 @@ import './Navbar.css';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Restaurant', href: '#restaurant' },
-  { label: 'Banquet', href: '#banquet' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Heritage', href: '#about' },
+  { label: 'Ritual', href: '#story' },
+  { label: 'Slow Bar', href: '#restaurant' },
+  { label: 'Lounge', href: '#banquet' },
+  { label: 'Reviews', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -18,7 +18,7 @@ export default function Navbar() {
   /* Detect scroll past 50px */
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -28,15 +28,28 @@ export default function Navbar() {
 
   /* Lock body scroll when mobile menu is open */
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    if (window.lenis) {
+      if (menuOpen) window.lenis.stop();
+      else window.lenis.start();
+    } else {
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
+    return () => {
+      if (window.lenis) window.lenis.start();
+      else document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   const handleLinkClick = (e, href) => {
     e.preventDefault();
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setMenuOpen(false);
+    
+    if (window.lenis) {
+      window.lenis.scrollTo(href, { offset: -30 });
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -48,7 +61,7 @@ export default function Navbar() {
           {/* Logo — left */}
           <a href="#home" className="navbar__logo" onClick={(e) => handleLinkClick(e, '#home')}>
             <span className="navbar__logo-name">Nilgiri</span>
-            <span className="navbar__logo-sub">Restaurant &amp; Banquet</span>
+            <span className="navbar__logo-sub">Cafe &amp; Slow Bar</span>
           </a>
 
           {/* Desktop nav links — center */}
@@ -71,14 +84,14 @@ export default function Navbar() {
             className="navbar__cta"
             onClick={(e) => handleLinkClick(e, '#contact')}
           >
-            Book Now
+            Book Seat
           </a>
 
           {/* Hamburger — mobile only */}
           <button
-            className="navbar__hamburger"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
+            className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--active' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
@@ -89,15 +102,6 @@ export default function Navbar() {
 
       {/* ── Full-screen mobile menu overlay ── */}
       <div className={`mobile-overlay${menuOpen ? ' mobile-overlay--open' : ''}`} aria-hidden={!menuOpen}>
-        {/* Close (X) button */}
-        <button
-          className="mobile-overlay__close"
-          onClick={() => setMenuOpen(false)}
-          aria-label="Close menu"
-        >
-          ✕
-        </button>
-
         <nav className="mobile-overlay__nav" aria-label="Mobile navigation">
           {NAV_LINKS.map(({ label, href }) => (
             <a
@@ -114,7 +118,7 @@ export default function Navbar() {
             className="mobile-overlay__cta"
             onClick={(e) => handleLinkClick(e, '#contact')}
           >
-            Book Now
+            Book Seat
           </a>
         </nav>
       </div>

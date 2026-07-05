@@ -1,0 +1,221 @@
+/* ===================================================
+   Story — Horizontal Culinary Story & Craft CSS
+   =================================================== */
+
+.story {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: var(--color-ivory);
+  overflow: hidden;
+}
+
+/* Left Sticky intro container */
+.story__sticky-intro {
+  width: 30vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--section-pad-x);
+  background: var(--color-ivory);
+  border-right: 1px solid var(--color-border-subtle);
+  z-index: 10;
+  position: relative;
+}
+
+.story__intro-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-brown);
+  margin-top: 16px;
+  opacity: 0.85;
+}
+
+/* Scroll traveling indicator */
+.story__scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.story__scroll-line {
+  position: relative;
+  width: 60px;
+  height: 1px;
+  background: var(--color-border-gold);
+  overflow: hidden;
+}
+
+.story__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gold-dark);
+  animation: scrollLineMove 2.5s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scrollLineMove {
+  0%   { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+.story__scroll-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-gold-dark);
+}
+
+/* Horizontal Track scroll wrapper */
+.story__track {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding-left: 80px;
+  padding-right: 120px;
+  will-change: transform;
+}
+
+/* Card slide layout */
+.story__card {
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth);
+}
+
+.story__card:hover {
+  transform: translateY(-8px);
+}
+
+.story__card-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-cream);
+}
+
+.story__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story__card:hover .story__card-image {
+  transform: scale(1.05);
+}
+
+/* Overlay step number bubble */
+.story__card-num {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--color-gold);
+  background: var(--color-ink);
+  padding: 4px 14px;
+  border-radius: 30px;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(35, 39, 31, 0.2);
+}
+
+.story__card-info {
+  margin-top: 24px;
+  padding-right: 16px;
+}
+
+.story__card-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.story__card-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-brown);
+  opacity: 0.85;
+}
+
+.story__track-spacer {
+  width: 100px;
+  flex-shrink: 0;
+}
+
+/* ── Responsive Styling ── */
+@media (max-width: 1024px) {
+  .story__sticky-intro {
+    width: 35vw;
+  }
+  
+  .story__track {
+    gap: 40px;
+    padding-left: 60px;
+  }
+
+  .story__card {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile, collapse horizontal scroll into vertical list */
+  .story {
+    height: auto;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .story__sticky-intro {
+    width: 100%;
+    height: auto;
+    padding: var(--section-pad-y) var(--section-pad-x) 40px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .story__scroll-indicator {
+    display: none;
+  }
+
+  .story__track {
+    height: auto;
+    flex-direction: column;
+    padding: 40px var(--section-pad-x) var(--section-pad-y);
+    gap: 48px;
+    transform: none !important; /* disable horizontal offset */
+  }
+
+  .story__card {
+    width: 100%;
+    max-width: 440px;
+  }
+  
+  .story__track-spacer {
+    display: none;
+  }
+}

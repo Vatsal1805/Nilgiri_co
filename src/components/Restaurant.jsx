@@ -6,52 +6,50 @@ export default function Restaurant() {
       <div className="restaurant__inner">
 
         {/* ── Left column — Text ── */}
-        <div className="restaurant__text">
-          <span className="restaurant__label">The Convivial</span>
+        <div className="restaurant__text" data-reveal="left">
+          <span className="restaurant__label">The Bar</span>
 
-          <h2 className="restaurant__heading">Our Luxury Restaurant</h2>
+          <h2 className="restaurant__heading">The Slow Bar</h2>
 
           <div className="restaurant__divider" />
 
           <p className="restaurant__paragraph">
-            Elevating your dining experience beyond the plate. Our attentive staff and
-            carefully curated menu ensure every visit is a journey — from delectable
-            starters and aromatic biryanis to decadent desserts.
+            A precision brewing experience. Our slow bar hosts small-batch hand pour-overs, glass siphons, and slow-drip cold brew columns. Sit down and converse with our artisans as they articulate the unique flavor profiles of our high-altitude estate coffee and single-origin teas.
           </p>
 
           {/* Opening Hours card */}
-          <div className="restaurant__hours-card">
-            <span className="restaurant__hours-title">Opening Hours</span>
+          <div className="restaurant__hours-card" data-reveal="scale">
+            <span className="restaurant__hours-title">Brew Hours</span>
 
             <div className="restaurant__hours-row">
-              <svg className="restaurant__hours-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="restaurant__hours-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              <span className="restaurant__hours-time">Mon – Sun: 11:00 AM – 3:30 PM</span>
+              <span className="restaurant__hours-time">Morning &amp; Lunch: 08:30 AM – 4:30 PM</span>
             </div>
 
             <div className="restaurant__hours-row">
-              <svg className="restaurant__hours-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="restaurant__hours-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              <span className="restaurant__hours-time">6:30 PM – 11:00 PM</span>
+              <span className="restaurant__hours-time">Sunset Slow Bar: 5:30 PM – 10:30 PM</span>
             </div>
           </div>
 
           {/* Download Menu CTA */}
           <a
             href="https://www.w3.org/WAI/WCAG21/Techniques/pdf/sample.pdf"
-            download="Nilgiri_Menu.pdf"
+            download="Nilgiri_Slow_Bar_Menu.pdf"
             className="restaurant__cta"
           >
-            Download Menu
+            Download Brew Catalog
           </a>
         </div>
 
         {/* ── Right column — Image ── */}
-        <div className="restaurant__image-wrap">
+        <div className="restaurant__image-wrap" data-reveal="right">
           <img
             src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=800"
             alt="Signature dish at Nilgiri Restaurant"

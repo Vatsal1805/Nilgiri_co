@@ -1,62 +1,98 @@
+import { useEffect, useRef } from 'react';
 import './About.css';
 
 export default function About() {
-  const scrollTo = (e, id) => {
+  const imageMainRef = useRef(null);
+  const imageSecRef = useRef(null);
+
+  const handleScrollClick = (e, id) => {
     e.preventDefault();
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (window.lenis) {
+      window.lenis.scrollTo(id);
+    } else {
+      document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
+
+  useEffect(() => {
+    // GSAP Scroll Parallax on Wrappers
+    if (window.gsap && window.ScrollTrigger) {
+      window.gsap.to(imageMainRef.current, {
+        yPercent: -8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+
+      window.gsap.to(imageSecRef.current, {
+        yPercent: 8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+    }
+  }, []);
 
   return (
     <section id="about" className="about">
       <div className="about__inner">
 
-        {/* ── Left column — Images ── */}
-        <div className="about__images">
-          <img
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800"
-            alt="Elegant dining at Nilgiri"
-            className="about__img-main"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600"
-            alt="Nilgiri restaurant interior"
-            className="about__img-secondary"
-            loading="lazy"
-          />
-          <div className="about__badge">
-            <span className="about__badge-number">12+</span>
-            <span className="about__badge-text">Years of Excellence</span>
+        {/* ── Left column — Images with reveal & parallax effects ── */}
+        <div className="about__images" data-reveal="left">
+          <div ref={imageMainRef} className="about__img-wrapper main-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80"
+              alt="Artisanal coffee brewing tools"
+              className="about__img-main"
+              loading="lazy"
+            />
+          </div>
+          <div ref={imageSecRef} className="about__img-wrapper secondary-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80"
+              alt="Barista pour-over drip detail"
+              className="about__img-secondary"
+              loading="lazy"
+            />
+          </div>
+          <div className="about__badge" data-reveal="scale">
+            <span className="about__badge-number">08</span>
+            <span className="about__badge-text">Single Origins</span>
           </div>
         </div>
 
-        {/* ── Right column — Text ── */}
-        <div className="about__text">
-          <span className="about__label">Our Story</span>
+        {/* ── Right column — Text with reveal effects ── */}
+        <div className="about__text" data-reveal="right">
+          <span className="about__label">Our Heritage</span>
 
           <h2 className="about__heading">
-            More Than a Meal —<br />An Experience
+            More than a cup.<br />An olfactory retreat.
           </h2>
 
           <div className="about__divider" />
 
           <p className="about__paragraph">
-            Nilgiri Restaurant &amp; Banquet has been Ahmedabad's top choice for special
-            occasions and everyday dining. We bring together exceptional food, elegant
-            ambience, and heartfelt hospitality under one roof.
+            Nilgiri Cafe &amp; Slow Bar is Ahmedabad&apos;s sanctuary for quiet concentration, coffee micro-lot roasting, and slow tea brewing. We curate mindful tasting moments where high-altitude estate crops meet precise temperature extractions.
           </p>
 
           <p className="about__paragraph">
-            Whether you're joining us for a quiet lunch or hosting a grand celebration
-            for 1000 guests, our team is dedicated to making every moment unforgettable.
+            Whether you are sitting down for a pour-over at the slow bar, exploring our rare estate leaf library, or attending a sensory cupping workshop, we invite you to slow down and dwell in a room created for focus.
           </p>
 
           <a
             href="#contact"
             className="about__cta"
-            onClick={(e) => scrollTo(e, '#contact')}
+            onClick={(e) => handleScrollClick(e, '#contact')}
           >
-            Book a Table
+            Book a Spot
           </a>
         </div>
       </div>

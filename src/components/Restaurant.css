@@ -1,89 +1,81 @@
 /* ===================================================
-   Restaurant — Nilgiri Restaurant & Banquet
+   Restaurant — Nilgiri Restaurant Details
    =================================================== */
 
 .restaurant {
-  background: #F2E8D5;
-  padding: 100px 0;
+  background: var(--color-cream);
+  padding: var(--section-pad-y) 0;
+  overflow: hidden;
 }
 
 .restaurant__inner {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 var(--section-pad-x);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
   align-items: center;
 }
 
-/* ── Left column — Text ── */
+/* ── Text Column ── */
 .restaurant__text {
-  max-width: 500px;
-}
-
-.restaurant__label {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: #C8A96E;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .restaurant__heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  font-weight: 600;
-  color: #2C1A0E;
-  line-height: 1.3;
-  margin: 0;
+  margin-bottom: 24px;
 }
 
 .restaurant__divider {
-  width: 40px;
-  height: 2px;
-  background: #C8A96E;
-  margin: 20px 0;
-  border: none;
+  width: 60px;
+  height: 1px;
+  background: var(--color-border-gold);
+  margin-bottom: 32px;
 }
 
 .restaurant__paragraph {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #5C3D2E;
-  line-height: 1.85;
-  margin: 0 0 28px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--color-brown);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  opacity: 0.9;
 }
 
-/* ── Opening Hours card ── */
+/* Opening Hours Card */
 .restaurant__hours-card {
-  background: #2C1A0E;
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin-bottom: 28px;
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-ink);
+  border: 1px solid var(--color-border-gold);
+  border-radius: 4px;
+  padding: 24px;
+  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+  box-shadow: var(--shadow-soft);
 }
 
 .restaurant__hours-title {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
-  color: #C8A96E;
+  color: var(--color-gold);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 2px;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+  display: block;
 }
 
 .restaurant__hours-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .restaurant__hours-icon {
@@ -91,40 +83,41 @@
 }
 
 .restaurant__hours-time {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 400;
-  color: #FAF6EE;
+  color: var(--color-ivory);
 }
 
-/* ── CTA — outlined ── */
+/* Outlined CTA */
 .restaurant__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 600;
-  color: #2C1A0E;
+  color: var(--color-ink);
   background: transparent;
-  border: 1.5px solid #C8A96E;
-  padding: 12px 28px;
-  border-radius: 6px;
+  border: 1px solid var(--color-ink);
+  padding: 14px 32px;
+  border-radius: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: all var(--transition-fast);
 }
 
 .restaurant__cta:hover {
-  background: #C8A96E;
-  color: #2C1A0E;
+  background: var(--color-ink);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 
-/* ── Right column — Image ── */
+/* ── Image Wrap ── */
 .restaurant__image-wrap {
-  border-radius: 14px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
   overflow: hidden;
-  height: 100%;
-  min-height: 480px;
+  box-shadow: var(--shadow-soft);
 }
 
 .restaurant__image {
@@ -132,49 +125,32 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ===================================================
-   Responsive — Tablet (< 1024px)
-   =================================================== */
+.restaurant__image-wrap:hover .restaurant__image {
+  transform: scale(1.04);
+}
+
+/* ── Breakpoints ── */
 @media (max-width: 1024px) {
   .restaurant__inner {
+    gap: 48px;
+  }
+
+  .restaurant__image-wrap {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant__inner {
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .restaurant__heading {
-    font-size: 32px;
-  }
-
-  .restaurant__image-wrap {
-    min-height: 400px;
-  }
-}
-
-/* ===================================================
-   Responsive — Mobile (< 768px)
-   =================================================== */
-@media (max-width: 768px) {
-  .restaurant {
-    padding: 60px 0;
-  }
-
-  .restaurant__inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  /* Image on top, text below */
   .restaurant__image-wrap {
     order: -1;
-    min-height: 260px;
-  }
-
-  .restaurant__heading {
-    font-size: 28px;
-  }
-
-  .restaurant__paragraph {
-    font-size: 14px;
+    aspect-ratio: 4 / 3;
   }
 }

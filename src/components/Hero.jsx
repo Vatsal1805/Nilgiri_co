@@ -1,56 +1,105 @@
+import { useEffect, useRef } from 'react';
+import useCanvasParticles from '../hooks/useCanvasParticles';
 import './Hero.css';
 
 export default function Hero() {
-  const scrollTo = (e, id) => {
+  const canvasRef = useRef(null);
+
+  // Bind the ambient glow particles via hook
+  useCanvasParticles(canvasRef);
+
+  const handleScrollClick = (e, id) => {
     e.preventDefault();
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (window.lenis) {
+      window.lenis.scrollTo(id);
+    } else {
+      document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
+
+  useEffect(() => {
+    // GSAP Entrance Stagger (visual components)
+    if (window.gsap) {
+      const tl = window.gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } });
+      
+      tl.fromTo('.hero__label', { opacity: 0, y: 15 }, { opacity: 1, y: 0 }, 0.4)
+        .fromTo('.hero__heading-line', 
+          { opacity: 0, y: 35 }, 
+          { opacity: 1, y: 0, stagger: 0.2 }, 
+          0.6
+        )
+        .fromTo('.hero__divider', { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0.9)
+        .fromTo('.hero__subtext', { opacity: 0, y: 10 }, { opacity: 0.85, y: 0 }, 1.1)
+        .fromTo('.hero__btn', { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.15 }, 1.3)
+        .fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 1.7);
+
+      // GSAP Scroll Parallax on the background container
+      if (window.ScrollTrigger) {
+        window.gsap.to('.hero__bg', {
+          yPercent: 15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#home',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+      }
+    }
+  }, []);
 
   return (
     <section id="home" className="hero">
+      {/* Evocative background parallax image container */}
+      <div className="hero__bg" />
+      
+      {/* Drifting Steam Canvas Overlay via custom hook */}
+      <canvas ref={canvasRef} className="hero__canvas" />
       <div className="hero__overlay" />
 
       <div className="hero__content">
-        <span className="hero__label">Welcome to Nilgiri</span>
+        <span className="hero__label">Welcome to Nilgiri Cafe</span>
 
         <h1 className="hero__heading">
-          A Dining Experience<br />Like No Other
+          <span className="hero__heading-line">Sourced from the Clouds</span>
+          <span className="hero__heading-line">Brewed for Quiet</span>
         </h1>
 
         <div className="hero__divider" />
 
         <p className="hero__subtext">
-          Restaurant &amp; Banquet · Ahmedabad, Gujarat
+          Single-Origin Cloud-Forest Coffee &amp; Artisanal Estates Tea · Ahmedabad, India
         </p>
 
         <div className="hero__buttons">
           <a
-            href="#contact"
+            href="#restaurant"
             className="hero__btn hero__btn--solid"
-            onClick={(e) => scrollTo(e, '#contact')}
+            onClick={(e) => handleScrollClick(e, '#restaurant')}
           >
-            Book a Table
+            Explore Slow Bar
           </a>
           <a
             href="#banquet"
             className="hero__btn hero__btn--outline"
-            onClick={(e) => scrollTo(e, '#banquet')}
+            onClick={(e) => handleScrollClick(e, '#banquet')}
           >
-            Explore Banquet
+            Tasting Lounge
           </a>
         </div>
       </div>
 
       {/* Scroll-down chevron */}
-      <div className="hero__scroll">
+      <div className="hero__scroll" onClick={(e) => handleScrollClick(e, '#about')}>
         <svg
           className="hero__chevron"
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="#C8A96E"
-          strokeWidth="2"
+          strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
