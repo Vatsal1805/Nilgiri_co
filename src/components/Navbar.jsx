@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import logoImg from '../assets/logo 2.png';
+import useMagnetic from '../hooks/useMagnetic';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -14,6 +16,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const ctaRef = useMagnetic(0.22);
 
   /* Detect scroll past 50px */
   useEffect(() => {
@@ -60,8 +63,7 @@ export default function Navbar() {
 
           {/* Logo — left */}
           <a href="#home" className="navbar__logo" onClick={(e) => handleLinkClick(e, '#home')}>
-            <span className="navbar__logo-name">Nilgiri</span>
-            <span className="navbar__logo-sub">Cafe &amp; Slow Bar</span>
+            <img src={logoImg} alt="Nilgiri Logo" className="navbar__logo-image" />
           </a>
 
           {/* Desktop nav links — center */}
@@ -80,6 +82,7 @@ export default function Navbar() {
 
           {/* CTA — right */}
           <a
+            ref={ctaRef}
             href="#contact"
             className="navbar__cta"
             onClick={(e) => handleLinkClick(e, '#contact')}

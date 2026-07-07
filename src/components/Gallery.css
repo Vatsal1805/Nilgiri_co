@@ -3,7 +3,7 @@
    =================================================== */
 
 .gallery {
-  background: var(--color-cream);
+  background: rgba(242, 232, 213, 0.88);
   padding: var(--section-pad-y) 0;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@
   border-radius: 4px;
   box-shadow: var(--shadow-soft);
   cursor: pointer;
-  background: var(--color-ivory);
+  background: rgba(250, 246, 238, 0.88);
 }
 
 /* Individual Image styling */

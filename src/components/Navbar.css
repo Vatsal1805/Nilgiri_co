@@ -1,5 +1,5 @@
 /* ===================================================
-   Navbar — Nilgiri Cafe & Slow Bar (Premium Glass Pill)
+   Navbar — Nilgiri Cafe & Slow Bar (Light Glass Pill)
    =================================================== */
 
 .navbar {
@@ -11,12 +11,12 @@
   max-width: var(--max-width);
   z-index: 1000;
   height: 60px;
-  background: rgba(28, 30, 26, 0.45);
+  background: rgba(250, 246, 238, 0.55);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(250, 246, 238, 0.08);
+  border: 1px solid rgba(200, 169, 110, 0.18);
   border-radius: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(44, 26, 14, 0.05);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -24,9 +24,9 @@
 .navbar--scrolled {
   top: 16px;
   height: 56px;
-  background: rgba(28, 30, 26, 0.75);
-  border-color: rgba(200, 169, 110, 0.2);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  background: rgba(250, 246, 238, 0.88);
+  border-color: rgba(200, 169, 110, 0.28);
+  box-shadow: 0 15px 40px rgba(44, 26, 14, 0.1);
 }
 
 .navbar__inner {
@@ -40,7 +40,7 @@
 /* ── Logo ── */
 .navbar__logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
   transition: opacity var(--transition-fast);
@@ -50,24 +50,11 @@
   opacity: 0.85;
 }
 
-.navbar__logo-name {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--color-ivory);
-  letter-spacing: 0.5px;
-}
-
-.navbar__logo-sub {
-  font-family: var(--font-sans);
-  font-size: 8px;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--color-gold);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 4px;
+.navbar__logo-image {
+  height: 38px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
 }
 
 /* ── Links ── */
@@ -81,7 +68,7 @@
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
-  color: var(--color-ivory);
+  color: var(--color-ink);
   opacity: 0.75;
   text-decoration: none;
   padding: 6px 0;
@@ -92,7 +79,7 @@
 
 .navbar__link:hover {
   opacity: 1;
-  color: var(--color-gold);
+  color: var(--color-gold-dark);
 }
 
 /* ── CTA Button ── */
@@ -100,22 +87,22 @@
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
-  color: var(--color-ink);
-  background: var(--color-gold);
+  color: var(--color-white);
+  background: var(--color-ink);
   padding: 8px 18px;
   border-radius: 20px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
   transition: all var(--transition-fast);
-  box-shadow: 0 4px 12px rgba(200, 169, 110, 0.15);
+  box-shadow: var(--shadow-soft);
 }
 
 .navbar__cta:hover {
-  background: var(--color-white);
-  color: var(--color-ink);
+  background: var(--color-gold-dark);
+  color: var(--color-white);
   transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-gold);
 }
 
 /* ── Mobile Hamburger ── */
@@ -138,7 +125,7 @@
   display: block;
   width: 20px;
   height: 1.5px;
-  background: var(--color-ivory);
+  background: var(--color-ink);
   transition: all 0.3s ease;
 }
 
@@ -160,7 +147,7 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: var(--color-ink);
+  background: var(--color-ivory);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,21 +172,21 @@
 .mobile-overlay__link {
   font-family: var(--font-serif);
   font-size: 32px;
-  color: var(--color-ivory);
+  color: var(--color-ink);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .mobile-overlay__link:hover {
-  color: var(--color-gold);
+  color: var(--color-gold-dark);
 }
 
 .mobile-overlay__cta {
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-ink);
-  background: var(--color-gold);
+  color: var(--color-white);
+  background: var(--color-ink);
   padding: 12px 32px;
   border-radius: 30px;
   letter-spacing: 1.5px;
@@ -210,7 +197,7 @@
 }
 
 .mobile-overlay__cta:hover {
-  background: var(--color-white);
+  background: var(--color-gold-dark);
 }
 
 /* ── Breakpoints ── */

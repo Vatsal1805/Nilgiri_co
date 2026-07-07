@@ -48,10 +48,9 @@ export default function Testimonials() {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
   }, [maxIndex]); // re-bind if maxIndex changes
-
   return (
-    <section id="testimonials" className="testimonials" data-reveal="fade">
-      <div className="container">
+    <section id="testimonials" className="testimonials">
+      <div className="container" data-reveal="fade">
         {/* ── Header ── */}
         <div className="testimonials__header" data-reveal="scale">
           <span className="section-label">Guest Experiences</span>

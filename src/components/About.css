@@ -3,7 +3,7 @@
    =================================================== */
 
 .about {
-  background: var(--color-ivory);
+  background: rgba(250, 246, 238, 0.88);
   padding: var(--section-pad-y) 0;
   overflow: hidden;
 }

@@ -83,9 +83,12 @@ export default function Story() {
 
   return (
     <section ref={pinRef} id="story" className="story">
-      <div className="story__sticky-intro">
+      <div className="story__sticky-intro" data-reveal="fade">
         <span className="section-label">The Slow Craft</span>
         <h2 className="section-title">The Brewing Ritual</h2>
+        <svg className="svg-underline" viewBox="0 0 120 8" preserveAspectRatio="none" style={{ margin: '16px 0 24px' }}>
+          <path className="svg-underline__path" d="M0 4 Q 30 1, 60 4 T 120 4" fill="none" />
+        </svg>
         <p className="story__intro-text">
           A sensory voyage across six acts. Scroll to follow our journey from cloud-forest harvests to precision glass siphons.
         </p>

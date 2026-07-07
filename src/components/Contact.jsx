@@ -6,8 +6,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact" data-reveal="fade">
-      <div className="container">
+    <section id="contact" className="contact">
+      <div className="container" data-reveal="fade">
         {/* ── Header ── */}
         <div className="contact__header" data-reveal="scale">
           <span className="section-label">Connect</span>

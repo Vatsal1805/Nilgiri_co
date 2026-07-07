@@ -12,8 +12,8 @@ const IMAGES = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="gallery" data-reveal="fade">
-      <div className="container">
+    <section id="gallery" className="gallery">
+      <div className="container" data-reveal="fade">
         {/* ── Top Section ── */}
         <div className="gallery__header" data-reveal="scale">
           <span className="section-label">Moments Captured</span>

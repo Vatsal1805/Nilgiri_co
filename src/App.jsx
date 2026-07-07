@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -17,8 +18,30 @@ export default function App() {
   useLenis();
   useScrollReveal();
 
+  useEffect(() => {
+    let ctx;
+    if (window.gsap && window.ScrollTrigger) {
+      ctx = window.gsap.context(() => {
+        window.gsap.to('.global-parallax-bg', {
+          yPercent: -15, // Moves slower than scroll speed
+          ease: 'none',
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+          }
+        });
+      });
+    }
+    return () => {
+      if (ctx) ctx.revert();
+    };
+  }, []);
+
   return (
     <>
+      <div className="global-parallax-bg" />
       <Navbar />
       <main>
         <Hero />

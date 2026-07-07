@@ -77,7 +77,9 @@ export default function About() {
             More than a cup.<br />An olfactory retreat.
           </h2>
 
-          <div className="about__divider" />
+          <svg className="svg-underline" viewBox="0 0 120 8" preserveAspectRatio="none">
+            <path className="svg-underline__path" d="M0 4 Q 30 1, 60 4 T 120 4" fill="none" />
+          </svg>
 
           <p className="about__paragraph">
             Nilgiri Cafe &amp; Slow Bar is Ahmedabad&apos;s sanctuary for quiet concentration, coffee micro-lot roasting, and slow tea brewing. We curate mindful tasting moments where high-altitude estate crops meet precise temperature extractions.

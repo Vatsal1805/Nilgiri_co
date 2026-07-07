@@ -9,19 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-ink);
+  background: transparent;
   overflow: hidden;
-}
-
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(rgba(28, 30, 26, 0.45), rgba(28, 30, 26, 0.55)),
-    url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=80')
-    center / cover no-repeat;
-  z-index: 1;
-  will-change: transform;
 }
 
 /* Layering */
@@ -37,7 +26,7 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 30%, rgba(28, 30, 26, 0.45) 100%);
+  background: radial-gradient(circle at center, rgba(250, 246, 238, 0) 30%, rgba(250, 246, 238, 0.4) 100%);
   z-index: 2;
 }
 
@@ -57,7 +46,7 @@
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
-  color: var(--color-gold);
+  color: var(--color-gold-dark);
   text-transform: uppercase;
   letter-spacing: 5px;
   margin-bottom: 24px;
@@ -70,7 +59,7 @@
   font-size: clamp(48px, 7vw, 96px);
   font-weight: 400;
   line-height: 1.05;
-  color: var(--color-ivory);
+  color: var(--color-ink);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -79,7 +68,14 @@
 
 .hero__heading-line {
   display: inline-block;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.hero__char {
+  display: inline-block;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 /* Line divider */
@@ -96,8 +92,8 @@
 .hero__subtext {
   font-family: var(--font-sans);
   font-size: 16px;
-  font-weight: 300;
-  color: var(--color-cream);
+  font-weight: 400;
+  color: var(--color-ink);
   letter-spacing: 1px;
   margin: 0 0 40px;
   opacity: 0;
@@ -128,26 +124,27 @@
 }
 
 .hero__btn--solid {
-  background: var(--color-gold);
-  color: var(--color-ink);
-  border: 1px solid var(--color-gold);
+  background: var(--color-ink);
+  color: var(--color-white);
+  border: 1px solid var(--color-ink);
 }
 
 .hero__btn--solid:hover {
-  background: var(--color-white);
-  border-color: var(--color-white);
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
   transform: translateY(-2px);
 }
 
 .hero__btn--outline {
   background: transparent;
-  color: var(--color-ivory);
-  border: 1px solid rgba(250, 246, 238, 0.3);
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
 }
 
 .hero__btn--outline:hover {
-  background: rgba(250, 246, 238, 0.08);
-  border-color: var(--color-gold);
+  background: var(--color-ink);
+  color: var(--color-white);
+  border-color: var(--color-ink);
   transform: translateY(-2px);
 }
 

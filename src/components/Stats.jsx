@@ -9,8 +9,8 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section className="stats" aria-label="Key statistics" data-reveal="fade">
-      <div className="stats__inner container">
+    <section className="stats" aria-label="Key statistics">
+      <div className="stats__inner container" data-reveal="fade">
         {STATS.map(({ value, label }) => (
           <div key={label} className="stats__item" data-reveal="scale">
             <span className="stats__value">{value}</span>

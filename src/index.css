@@ -75,6 +75,21 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- Global Parallax Background ---------- */
+.global-parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120vh;
+  background-image: linear-gradient(rgba(250, 246, 238, 0.25), rgba(250, 246, 238, 0.15)),
+                    url('./assets/hero-3.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  will-change: transform;
+}
+
 /* Global Noise texture overlay for high-end analog look */
 body::after {
   content: "";
@@ -177,6 +192,26 @@ ul, ol {
 
 [data-reveal="scale"] {
   transform: scale(0.96) translateY(20px);
+}
+
+/* ---------- Premium SVG Underline Draw ---------- */
+.svg-underline {
+  width: 120px;
+  height: 8px;
+  display: block;
+  overflow: visible;
+  margin-top: 12px;
+}
+.svg-underline__path {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  stroke: var(--color-gold-dark);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+[data-reveal].revealed .svg-underline__path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
 }
 
 /* ---------- Responsive Breakpoints ---------- */
