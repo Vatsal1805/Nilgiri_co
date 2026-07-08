@@ -1,4 +1,5 @@
 import './Restaurant.css';
+import slowBarImg from '../assets/coffee&drinks/nilgiri-filter-coffee.png';
 
 export default function Restaurant() {
   return (
@@ -51,8 +52,8 @@ export default function Restaurant() {
         {/* ── Right column — Image ── */}
         <div className="restaurant__image-wrap" data-reveal="right">
           <img
-            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=800"
-            alt="Signature dish at Nilgiri Restaurant"
+            src={slowBarImg}
+            alt="Filter coffee brewing at Nilgiri Slow Bar"
             className="restaurant__image"
             loading="lazy"
           />

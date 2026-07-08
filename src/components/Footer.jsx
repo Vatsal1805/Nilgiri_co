@@ -1,13 +1,12 @@
 import './Footer.css';
+import img1 from '../assets/food/food-1.png';
+import img2 from '../assets/food/food-3.png';
+import img3 from '../assets/food/food-5.png';
+import img4 from '../assets/coffee&drinks/nilgiri-espresso.png';
+import img5 from '../assets/coffee&drinks/nilgiri-cold-brew.png';
+import img6 from '../assets/coffee&drinks/nilgiri-affogato.png';
 
-const MINI_GALLERY = [
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100',
-  'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=100',
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100',
-  'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=100',
-  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100',
-  'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=100',
-];
+const MINI_GALLERY = [img1, img2, img3, img4, img5, img6];
 
 export default function Footer() {
   const handleScrollClick = (e, id) => {
@@ -100,9 +99,14 @@ export default function Footer() {
         {/* ── Bottom Bar ── */}
         <div className="footer__bottom">
           <div className="footer__bottom-divider" />
-          <p className="footer__copyright">
-            &copy; 2026 Nilgiri Cafe &amp; Slow Bar. All Rights Reserved.
-          </p>
+          <div className="footer__bottom-content">
+            <p className="footer__copyright">
+              &copy; 2026 Nilgiri Cafe &amp; Slow Bar. All Rights Reserved.
+            </p>
+            <p className="footer__credits">
+              Made by <a href="https://convergedigitals.com" target="_blank" rel="noopener noreferrer" className="footer__credit-link">Converge Digitals</a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

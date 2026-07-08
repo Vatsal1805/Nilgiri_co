@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 import './Story.css';
 
-import slide1 from '../assets/Slide 1.png';
-import slide2 from '../assets/Slide 2.png';
-import slide3 from '../assets/Slide 3.png';
-import slide4 from '../assets/Slide 4.png';
-import slide5 from '../assets/Slide 5.png';
-import slide6 from '../assets/Slide 6.png';
+import slide1 from '../assets/nilgiri-hills-bg.png';
+import slide2 from '../assets/coffee&drinks/pt 2 the beans.png';
+import slide3 from '../assets/coffee&drinks/nilgiri-espresso.png';
+import slide4 from '../assets/coffee&drinks/nilgiri-pour-over.png';
+import slide5 from '../assets/coffee&drinks/nilgiri-cold-brew.png';
+import slide6 from '../assets/coffee&drinks/nilgiri-affogato.png';
 
 const STORY_STEPS = [
   {
@@ -60,7 +60,9 @@ export default function Story() {
     const calculateScroll = () => {
       const trackWidth = scrollWrapper.scrollWidth;
       const windowWidth = window.innerWidth;
-      return trackWidth - windowWidth;
+      const introEl = document.querySelector('.story__sticky-intro');
+      const introWidth = introEl ? introEl.offsetWidth : windowWidth * 0.3;
+      return trackWidth - (windowWidth - introWidth);
     };
 
     const ctx = window.gsap.context(() => {

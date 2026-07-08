@@ -5,10 +5,8 @@ import './Navbar.css';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'Heritage', href: '#about' },
-  { label: 'Ritual', href: '#story' },
+  { label: 'Our Craft', href: '#about' },
   { label: 'Slow Bar', href: '#restaurant' },
-  { label: 'Lounge', href: '#banquet' },
   { label: 'Reviews', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];

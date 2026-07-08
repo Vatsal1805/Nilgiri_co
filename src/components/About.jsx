@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './About.css';
+import aboutMainImg from '../assets/ambiance/ambiance-4.png';
+import aboutSecImg from '../assets/coffee&drinks/nilgiri-pour-over.png';
 
 export default function About() {
   const imageMainRef = useRef(null);
@@ -49,16 +51,16 @@ export default function About() {
         <div className="about__images" data-reveal="left">
           <div ref={imageMainRef} className="about__img-wrapper main-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80"
-              alt="Artisanal coffee brewing tools"
+              src={aboutMainImg}
+              alt="Nilgiri café ambiance and heritage space"
               className="about__img-main"
               loading="lazy"
             />
           </div>
           <div ref={imageSecRef} className="about__img-wrapper secondary-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80"
-              alt="Barista pour-over drip detail"
+              src={aboutSecImg}
+              alt="Artisan pour-over brewing at Nilgiri Slow Bar"
               className="about__img-secondary"
               loading="lazy"
             />

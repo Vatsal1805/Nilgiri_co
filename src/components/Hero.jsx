@@ -23,8 +23,9 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    // GSAP Entrance Stagger (visual components)
-    if (window.gsap) {
+    if (!window.gsap) return;
+
+    const ctx = window.gsap.context(() => {
       const tl = window.gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } });
       
       tl.fromTo('.hero__label', { opacity: 0, y: 15 }, { opacity: 1, y: 0 }, 0.4)
@@ -34,10 +35,12 @@ export default function Hero() {
           0.6
         )
         .fromTo('.hero__divider', { scaleX: 0 }, { scaleX: 1, duration: 1 }, 1.1)
-        .fromTo('.hero__subtext', { opacity: 0, y: 10 }, { opacity: 0.85, y: 0 }, 1.3)
+        .fromTo('.hero__subtext', { opacity: 0, y: 10 }, { opacity: 1, y: 0 }, 1.3)
         .fromTo('.hero__btn', { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.15 }, 1.5)
         .fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 1.9);
-    }
+    });
+
+    return () => ctx.revert();
   }, []);
 
   const splitText = (text) => {

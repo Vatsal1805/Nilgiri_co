@@ -165,14 +165,43 @@
   margin-bottom: 32px;
 }
 
+.footer__bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 .footer__copyright {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 300;
   color: var(--color-cream);
   opacity: 0.7;
-  text-align: center;
   margin: 0;
+}
+
+.footer__credits {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-cream);
+  opacity: 0.7;
+  margin: 0;
+}
+
+.footer__credit-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast), border-bottom var(--transition-fast);
+  border-bottom: 1px solid transparent;
+}
+
+.footer__credit-link:hover {
+  color: var(--color-gold-dark);
+  border-bottom-color: var(--color-gold-dark);
 }
 
 /* ── Breakpoints ── */
@@ -198,5 +227,11 @@
   
   .footer__desc {
     max-width: 100%;
+  }
+
+  .footer__bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
   }
 }

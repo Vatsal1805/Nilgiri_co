@@ -5,7 +5,6 @@ import About from './components/About';
 import Story from './components/Story';
 import Restaurant from './components/Restaurant';
 import Banquet from './components/Banquet';
-import Stats from './components/Stats';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -49,7 +48,6 @@ export default function App() {
         <Story />
         <Restaurant />
         <Banquet />
-        <Stats />
         <Gallery />
         <Testimonials />
         <Contact />

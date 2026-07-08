@@ -1,28 +1,6 @@
 import { useEffect, useRef } from 'react';
 import './Banquet.css';
 
-const AMENITIES = [
-  'Acoustic Quiet Study Zones',
-  'Estate Leaf & Bean Library',
-  'Precision Temperature Pour-Over Bar',
-  'Slow-Drip Cold Brew Towers',
-  'Traditional Basalt Matcha Stone Mills',
-  'Siphon Bar Tasting Stations',
-  'Ergonomic Slow-Work Desks',
-  'Private Sensory Tasting Alcoves'
-];
-
-const EVENTS = [
-  'Sensory Coffee Cupping Sessions',
-  'Traditional Matcha Whisking Classes',
-  'Single-Origin Tea Pairings',
-  'Artisanal Coffee Roasting Workshops',
-  'Private Intellectual Salons',
-  'Silent Creative Co-Working Hours',
-  'Olfactory Flavour Profiling Labs',
-  'Artisanal Pastry & Brew Pairings'
-];
-
 export default function Banquet() {
   const canvasRef = useRef(null);
 
@@ -96,62 +74,33 @@ export default function Banquet() {
 
   return (
     <section id="banquet" className="banquet">
+      <div className="banquet__bg" />
       <canvas ref={canvasRef} className="banquet__canvas" />
+      
       <div className="container" data-reveal="fade">
-        {/* ── Top Section ── */}
-        <div className="banquet__header" data-reveal="fade">
-          <span className="section-label" style={{ color: 'var(--color-gold)' }}>The Lounge</span>
-          <h2 className="banquet__heading">Tasting Lounge &amp; Coffee Lab</h2>
-          <p className="banquet__subtext">
-            A sanctuary designed for sensory exploration and quiet concentration. Enjoy rare micro-lots, explore tea archives, or attend workshops in a room curated for focus.
-          </p>
-        </div>
-
-        {/* ── Cards Grid ── */}
-        <div className="banquet__cards">
-          {/* Card 1 — Amenities */}
-          <div className="banquet__card" data-reveal="left">
-            <h3 className="banquet__card-title">Bespoke Features</h3>
-            <div className="banquet__card-divider" />
-            <ul className="banquet__list">
-              {AMENITIES.map((item) => (
-                <li key={item} className="banquet__list-item">
-                  <svg className="banquet__list-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span className="banquet__list-text">{item}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="banquet__content-grid">
+          
+          {/* Left Column — Big Serif Display Header */}
+          <div className="banquet__content-left" data-reveal="left">
+            <span className="section-label" style={{ color: 'var(--color-gold)' }}>The Lounge</span>
+            <h2 className="banquet__display-heading">A quiet sanctuary for sensory devotion.</h2>
           </div>
-
-          {/* Card 2 — Events */}
-          <div className="banquet__card" data-reveal="right">
-            <h3 className="banquet__card-title">Signature Arrangements</h3>
-            <div className="banquet__card-divider" />
-            <ul className="banquet__list">
-              {EVENTS.map((item) => (
-                <li key={item} className="banquet__list-item">
-                  <svg className="banquet__list-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <circle cx="12" cy="12" r="3" fill="var(--color-gold)" />
-                  </svg>
-                  <span className="banquet__list-text">{item}</span>
-                </li>
-              ))}
-            </ul>
+          
+          {/* Right Column — Editorial Text & CTA */}
+          <div className="banquet__content-right" data-reveal="right">
+            <p className="banquet__description">
+              A dedicated space curated for quiet concentration and deep sensory study. Enjoy custom coffee flights, explore our organic leaf archives, or book a private masterclass in coffee roasting, matcha whisking, or olfactory flavor profiling.
+            </p>
+            
+            <a
+              href="#contact"
+              className="banquet__cta"
+              onClick={(e) => handleScrollClick(e, '#contact')}
+            >
+              Book a Workshop Slot
+            </a>
           </div>
-        </div>
-
-        {/* ── CTA Button ── */}
-        <div className="banquet__cta-wrap" data-reveal="scale">
-          <a
-            href="#contact"
-            className="banquet__cta"
-            onClick={(e) => handleScrollClick(e, '#contact')}
-          >
-            Book a Workshop Slot
-          </a>
+          
         </div>
       </div>
     </section>

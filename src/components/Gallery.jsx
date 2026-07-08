@@ -1,14 +1,13 @@
 import './Gallery.css';
+import img1 from '../assets/ambiance/ambiance-3.png';
+import img2 from '../assets/food/food-1.png';
+import img3 from '../assets/ambiance/ambiance-5.png';
+import img4 from '../assets/food/food-3.png';
+import img5 from '../assets/ambiance/ambiance-6.png';
+import img6 from '../assets/food/food-5.png';
+import img7 from '../assets/ambiance/ambiance-7.png';
 
-const IMAGES = [
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800',
-  'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800',
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600',
-  'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600',
-  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600',
-  'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800',
-  'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800'
-];
+const IMAGES = [img1, img2, img3, img4, img5, img6, img7];
 
 export default function Gallery() {
   return (
@@ -17,7 +16,7 @@ export default function Gallery() {
         {/* ── Top Section ── */}
         <div className="gallery__header" data-reveal="scale">
           <span className="section-label">Moments Captured</span>
-          <h2 className="gallery__heading">Atmosphere &amp; Plating</h2>
+          <h2 className="gallery__heading">Space &amp; Craft</h2>
         </div>
 
         {/* ── Image Grid ── */}

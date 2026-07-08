@@ -50,6 +50,7 @@ export default function Testimonials() {
   }, [maxIndex]); // re-bind if maxIndex changes
   return (
     <section id="testimonials" className="testimonials">
+      <div className="testimonials__bg" />
       <div className="container" data-reveal="fade">
         {/* ── Header ── */}
         <div className="testimonials__header" data-reveal="scale">
