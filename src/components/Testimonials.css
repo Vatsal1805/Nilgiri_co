@@ -15,7 +15,7 @@
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(10, 8, 6, 0.55), rgba(10, 8, 6, 0.55)),
-                    url('../assets/ambiance/ambiance-2.png');
+                    url('../assets/ambiance/ambiance-2.webp');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import logoImg from '../assets/logo 2.png';
+import logoImg from '../assets/logo 2.webp';
 import useMagnetic from '../hooks/useMagnetic';
 import './Navbar.css';
 

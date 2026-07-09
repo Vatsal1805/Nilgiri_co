@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './About.css';
-import aboutMainImg from '../assets/ambiance/ambiance-4.png';
-import aboutSecImg from '../assets/coffee&drinks/nilgiri-pour-over.png';
+import aboutMainImg from '../assets/ambiance/ambiance-4.webp';
+import aboutSecImg from '../assets/coffee&drinks/nilgiri-pour-over.webp';
 
 export default function About() {
   const imageMainRef = useRef(null);

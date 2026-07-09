@@ -30,26 +30,21 @@
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(18, 16, 14, 0.76), rgba(18, 16, 14, 0.76)),
-                    url('../assets/ambiance/ambiance-5.png');
+                    url('../assets/ambiance/ambiance-5.webp');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   z-index: 1;
 }
 
-/* ── Two Column Editorial Grid ── */
-.banquet__content-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 100px;
-  align-items: center;
-  padding: 40px 0;
-}
-
-.banquet__content-left {
+/* ── Option A Layout (Header on Top, Cards Side-by-Side) ── */
+.banquet__header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
 }
 
 .banquet__display-heading {
@@ -61,10 +56,103 @@
   margin: 16px 0 0;
 }
 
-.banquet__content-right {
+.banquet__menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+/* ── Menu Cards ── */
+.banquet__menu-card {
+  background: rgba(250, 246, 238, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 169, 110, 0.18);
+  border-radius: 8px;
+  padding: 32px;
+  width: 100%;
+  transition: all var(--transition-smooth);
+}
+
+.banquet__menu-card:hover {
+  border-color: rgba(200, 169, 110, 0.35);
+  background: rgba(250, 246, 238, 0.06);
+}
+
+.banquet__menu-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-gold);
+  margin: 0 0 20px;
+  border-bottom: 1px dashed rgba(200, 169, 110, 0.2);
+  padding-bottom: 12px;
+}
+
+.banquet__menu-list {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+.banquet__menu-item {
+  display: flex;
+  gap: 20px;
   align-items: flex-start;
+}
+
+.banquet__menu-item-img {
+  width: 90px;
+  height: 75px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(200, 169, 110, 0.2);
+  flex-shrink: 0;
+  transition: all var(--transition-smooth);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.banquet__menu-item:hover .banquet__menu-item-img {
+  transform: scale(1.08) rotate(1deg);
+  border-color: var(--color-gold);
+  box-shadow: 0 6px 15px rgba(200, 169, 110, 0.25);
+}
+
+.banquet__menu-item-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.banquet__menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.banquet__menu-item-name {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ivory);
+  letter-spacing: 1px;
+}
+
+.banquet__menu-item-line {
+  flex-grow: 1;
+  border-bottom: 1px dotted rgba(250, 246, 238, 0.15);
+}
+
+.banquet__menu-item-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-cream);
+  opacity: 0.8;
 }
 
 .banquet__description {
@@ -74,7 +162,8 @@
   line-height: 1.8;
   color: var(--color-cream);
   opacity: 0.9;
-  margin: 0 0 40px;
+  margin: 20px auto 40px;
+  max-width: 700px;
 }
 
 /* ── CTA Button ── */
@@ -102,12 +191,15 @@
   box-shadow: none;
 }
 
+.banquet__tabs {
+  display: none;
+}
+
 /* ── Breakpoints ── */
 @media (max-width: 991px) {
-  .banquet__content-grid {
-    gap: 60px;
+  .banquet__menu-grid {
     grid-template-columns: 1fr;
-    padding: 20px 0;
+    gap: 32px;
   }
 
   .banquet__display-heading {
@@ -116,12 +208,58 @@
 }
 
 @media (max-width: 768px) {
-  .banquet__content-grid {
-    gap: 40px;
+  .banquet__header {
+    margin-bottom: 40px;
   }
   
   .banquet__description {
     font-size: 15px;
     line-height: 1.7;
+    margin-bottom: 30px;
+  }
+
+  .banquet__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 32px;
+    border-bottom: 1px solid rgba(250, 246, 238, 0.15);
+    padding-bottom: 8px;
+    max-width: 320px;
+  }
+
+  .banquet__tab {
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-cream);
+    opacity: 0.65;
+    cursor: pointer;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all var(--transition-fast);
+  }
+
+  .banquet__tab.is-active {
+    opacity: 1;
+    color: var(--color-gold);
+  }
+
+  .banquet__tab.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-gold);
+  }
+
+  .is-hidden-mobile {
+    display: none !important;
   }
 }

@@ -1,12 +1,5 @@
+import logoImg from '../assets/logo 2.webp';
 import './Footer.css';
-import img1 from '../assets/food/food-1.png';
-import img2 from '../assets/food/food-3.png';
-import img3 from '../assets/food/food-5.png';
-import img4 from '../assets/coffee&drinks/nilgiri-espresso.png';
-import img5 from '../assets/coffee&drinks/nilgiri-cold-brew.png';
-import img6 from '../assets/coffee&drinks/nilgiri-affogato.png';
-
-const MINI_GALLERY = [img1, img2, img3, img4, img5, img6];
 
 export default function Footer() {
   const handleScrollClick = (e, id) => {
@@ -46,7 +39,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="footer__col">
             <div className="footer__brand">
-              <span className="footer__logo">Nilgiri</span>
+              <img src={logoImg} alt="Nilgiri Logo" className="footer__logo-img" />
               <span className="footer__tagline">Cafe &amp; Slow Bar</span>
             </div>
             <p className="footer__desc">
@@ -83,17 +76,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Gallery */}
-          <div className="footer__col">
-            <h4 className="footer__col-title">Visuals</h4>
-            <div className="footer__mini-gallery">
-              {MINI_GALLERY.map((src, i) => (
-                <div key={i} className="footer__mini-img">
-                  <img src={src} alt="Gallery thumbnail" loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* ── Bottom Bar ── */}
@@ -104,7 +86,7 @@ export default function Footer() {
               &copy; 2026 Nilgiri Cafe &amp; Slow Bar. All Rights Reserved.
             </p>
             <p className="footer__credits">
-              Made by <a href="https://convergedigitals.com" target="_blank" rel="noopener noreferrer" className="footer__credit-link">Converge Digitals</a>
+              Crafted and Designed by <a href="https://convergedigitals.com" target="_blank" rel="noopener noreferrer" className="footer__credit-link">Converge Digitals</a>
             </p>
           </div>
         </div>

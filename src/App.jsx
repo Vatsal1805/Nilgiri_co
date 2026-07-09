@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Story from './components/Story';
+import MenuCategories from './components/MenuCategories';
 import Restaurant from './components/Restaurant';
 import Banquet from './components/Banquet';
 import Gallery from './components/Gallery';
@@ -46,6 +47,7 @@ export default function App() {
         <Hero />
         <About />
         <Story />
+        <MenuCategories />
         <Restaurant />
         <Banquet />
         <Gallery />

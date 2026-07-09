@@ -83,7 +83,7 @@ body {
   width: 100%;
   height: 120vh;
   background-image: linear-gradient(rgba(250, 246, 238, 0.25), rgba(250, 246, 238, 0.15)),
-                    url('./assets/hero-3.png');
+                    url('./assets/hero-3.webp');
   background-size: cover;
   background-position: center;
   z-index: -1;

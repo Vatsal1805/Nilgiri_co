@@ -1,5 +1,5 @@
 import './Restaurant.css';
-import slowBarImg from '../assets/coffee&drinks/nilgiri-filter-coffee.png';
+import slowBarImg from '../assets/coffee&drinks/nilgiri-filter-coffee.webp';
 
 export default function Restaurant() {
   return (

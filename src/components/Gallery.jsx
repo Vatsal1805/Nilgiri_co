@@ -1,11 +1,11 @@
 import './Gallery.css';
-import img1 from '../assets/ambiance/ambiance-3.png';
-import img2 from '../assets/food/food-1.png';
-import img3 from '../assets/ambiance/ambiance-5.png';
-import img4 from '../assets/food/food-3.png';
-import img5 from '../assets/ambiance/ambiance-6.png';
-import img6 from '../assets/food/food-5.png';
-import img7 from '../assets/ambiance/ambiance-7.png';
+import img1 from '../assets/ambiance/ambiance-3.webp';
+import img2 from '../assets/food/food-1.webp';
+import img3 from '../assets/ambiance/ambiance-5.webp';
+import img4 from '../assets/food/food-3.webp';
+import img5 from '../assets/ambiance/ambiance-6.webp';
+import img6 from '../assets/food/food-5.webp';
+import img7 from '../assets/ambiance/ambiance-7.webp';
 
 const IMAGES = [img1, img2, img3, img4, img5, img6, img7];
 

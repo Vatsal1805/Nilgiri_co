@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 import './Story.css';
 
-import slide1 from '../assets/nilgiri-hills-bg.png';
-import slide2 from '../assets/coffee&drinks/pt 2 the beans.png';
-import slide3 from '../assets/coffee&drinks/nilgiri-espresso.png';
-import slide4 from '../assets/coffee&drinks/nilgiri-pour-over.png';
-import slide5 from '../assets/coffee&drinks/nilgiri-cold-brew.png';
-import slide6 from '../assets/coffee&drinks/nilgiri-affogato.png';
+import slide1 from '../assets/nilgiri-hills-bg.webp';
+import slide2 from '../assets/coffee&drinks/pt 2 the beans.webp';
+import slide3 from '../assets/coffee&drinks/nilgiri-espresso.webp';
+import slide4 from '../assets/coffee&drinks/nilgiri-pour-over.webp';
+import slide5 from '../assets/coffee&drinks/nilgiri-cold-brew.webp';
+import slide6 from '../assets/coffee&drinks/nilgiri-affogato.webp';
 
 const STORY_STEPS = [
   {

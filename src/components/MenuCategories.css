@@ -1,0 +1,143 @@
+/* ===================================================
+   MenuCategories — What We Serve (Premium Layout)
+   =================================================== */
+
+.categories {
+  position: relative;
+  background: var(--color-ivory);
+  padding: var(--section-pad-y) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.categories__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.categories__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 5vw, 48px);
+  color: var(--color-ink);
+  margin: 12px 0 20px;
+}
+
+.categories__subtext {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 350;
+  color: var(--color-ink);
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* ── Grid Categories ── */
+.categories__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.categories__card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 169, 110, 0.18);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  box-shadow: var(--shadow-soft);
+}
+
+.categories__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 169, 110, 0.45);
+  box-shadow: 0 12px 30px rgba(200, 169, 110, 0.15);
+}
+
+.categories__img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.categories__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.categories__card:hover .categories__img {
+  transform: scale(1.05);
+}
+
+.categories__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(28, 30, 26, 0.15) 30%, rgba(28, 30, 26, 0.88) 95%);
+  z-index: 2;
+  transition: all var(--transition-smooth);
+}
+
+.categories__card:hover .categories__overlay {
+  background: linear-gradient(to bottom, rgba(28, 30, 26, 0.25) 30%, rgba(28, 30, 26, 0.94) 95%);
+}
+
+.categories__card-content {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.categories__card-num {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.categories__card-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-ivory);
+  margin: 0 0 8px;
+}
+
+.categories__card-items {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-cream);
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* ── Breakpoints ── */
+@media (max-width: 1024px) {
+  .categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 568px) {
+  .categories__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categories__card {
+    aspect-ratio: 16 / 11;
+  }
+}
